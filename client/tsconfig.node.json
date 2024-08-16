@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "target": "ES2022",
-    "lib": ["ES2023"],
+    "lib": ["ES6"],
     "module": "ESNext",
     "skipLibCheck": true,
 
