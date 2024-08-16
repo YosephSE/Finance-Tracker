@@ -1,13 +1,17 @@
 import express, { Express } from "express";
 import mongoose from "mongoose";
+require("dotenv").config();
 
 const app: Express = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
-const mongoURI =
-  "mongodb+srv://yoseph:pass%40123@everydollar.yvssl.mongodb.net/";
+const mongoURI: string = process.env.MONGO_URI!;
+
+if (!mongoURI) {
+  throw new Error("MONGO_URI environment variable is not set");
+}
 
 mongoose
   .connect(mongoURI)
