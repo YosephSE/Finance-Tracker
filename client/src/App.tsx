@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DashBoard from "./pages/dashboard";
+import DashBoard from "./pages/dashboard/Index";
 import Auth from "./pages/auth";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<DashBoard />}></Route>
-        <Route path='/auth' element={<Auth/>}></Route>
+        <Route path="/" element={<DashBoard />}></Route>
+        <Route path="/auth" element={<Auth />}></Route>
       </Routes>
     </Router>
   );
