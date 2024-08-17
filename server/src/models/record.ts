@@ -18,6 +18,6 @@ const recordSchema = new mongoose.Schema<RecordType>({
   paymentMethod: { type: String, required: true },
 });
 
-const ReacordModel = mongoose.model<RecordType>("Records", recordSchema);
+const RecordModel = mongoose.model<RecordType>("Records", recordSchema);
 
-export default ReacordModel;
+export default RecordModel;
