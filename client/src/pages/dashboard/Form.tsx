@@ -26,6 +26,7 @@ const Form = () => {
         console.error(err);
       });
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newRecord: RecordType = {
@@ -106,3 +107,6 @@ const Form = () => {
 };
 
 export default Form;
+function err(reason: any): PromiseLike<never> {
+  throw new Error("Function not implemented.");
+}
