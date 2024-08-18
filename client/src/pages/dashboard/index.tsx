@@ -1,16 +1,16 @@
-import { useUser } from "@clerk/clerk-react"
-import Form from "./Form"
-import Record from "./Record"
+import Form from "./Form";
+import Record from "./Record";
+import Hero from "./Hero";
+import NavBar from "./NavBar";
 const DashBoard = () => {
-
-  const {user} = useUser()
   return (
     <div>
-      <h1>Welcome {user?.firstName}! Here are your finances</h1>
-      <Form/>
-      <Record/>
+      <NavBar />
+      <Hero />
+      <Form />
+      <Record />
     </div>
-  )
-}
+  );
+};
 
-export default DashBoard
+export default DashBoard;
