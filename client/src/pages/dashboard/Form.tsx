@@ -9,14 +9,18 @@ interface RecordType {
   amount: number;
   category: string;
   paymentMethod: string;
+  __v?: number;
 }
-const Form = () => {
+interface RecordProps {
+  setRecords: React.Dispatch<React.SetStateAction<RecordType[]>>;
+}
+const Form: React.FC<RecordProps> = ({ setRecords }) => {
   const [amount, setAmount] = useState<string>("");
   const [desc, setDesc] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [paymentMethod, setPaymentMethod] = useState<string>("");
   const { user } = useUser();
-  const addRecord: Function = (newRecord: any): void => {
+  const addRecord = (newRecord: RecordType) => {
     axios
       .post("http://localhost:5000/api/", newRecord)
       .then((res) => {
@@ -38,7 +42,10 @@ const Form = () => {
       paymentMethod,
     };
     console.log(newRecord);
+
     addRecord(newRecord);
+    setRecords((records) => [...records, newRecord]);
+
     setAmount("");
     setDesc("");
     setCategory("");
@@ -107,6 +114,3 @@ const Form = () => {
 };
 
 export default Form;
-function err(reason: any): PromiseLike<never> {
-  throw new Error("Function not implemented.");
-}

@@ -47,7 +47,7 @@ const getRecord = async (req: Request, res: Response) => {
     const userId: string = req.params.userId;
     const records = await RecordModel.find({ userId });
     if (records.length === 0) {
-      return res.status(404).json({ message: "No Record Found" });
+      return res.status(200).send([]);
     }
     return res.status(200).json(records);
   } catch (err) {

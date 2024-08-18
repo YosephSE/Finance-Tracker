@@ -2,11 +2,24 @@ import { useUser } from "@clerk/clerk-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Record = () => {
-  const { user } = useUser();
-  const [records, setRecords] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+interface RecordType {
+  userId: string;
+  date: Date;
+  desc: string;
+  amount: number;
+  category: string;
+  paymentMethod: string;
+  __v: number;
+}
 
+interface RecordProps {
+  records: RecordType[];
+  setRecords: React.Dispatch<React.SetStateAction<RecordType[]>>;
+}
+
+const Record: React.FC<RecordProps> = ({ records, setRecords }) => {
+  const { user } = useUser();
+  const [isLoaded, setIsLoaded] = useState(false);
   const fetchRecords = () => {
     axios
       .get(`http://localhost:5000/api/${user?.id}`)
@@ -14,7 +27,7 @@ const Record = () => {
         setRecords(res.data);
       })
       .catch((err) => {
-        console.error(err);
+        console.log(err);
       });
   };
 
