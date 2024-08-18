@@ -9,8 +9,7 @@ const router: Router = Router();
 
 router.get("/:userId", getRecord);
 router.post("/", addRecord);
-
 router.put("/:id", editRecord);
-
 router.delete("/:id", deleteRecord);
+
 export default router;

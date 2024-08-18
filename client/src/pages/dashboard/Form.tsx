@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useUser } from "@clerk/clerk-react";
+import axios from "axios";
+
 interface RecordType {
   userId: string | undefined;
   date: number;
@@ -14,6 +16,16 @@ const Form = () => {
   const [category, setCategory] = useState<string>("");
   const [paymentMethod, setPaymentMethod] = useState<string>("");
   const { user } = useUser();
+  const addRecord: Function = (newRecord: any): void => {
+    axios
+      .post("http://localhost:5000/api/", newRecord)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newRecord: RecordType = {
@@ -25,7 +37,7 @@ const Form = () => {
       paymentMethod,
     };
     console.log(newRecord);
-    // addRecord(newRecord)
+    addRecord(newRecord);
     setAmount("");
     setDesc("");
     setCategory("");
