@@ -18,5 +18,20 @@
     "mongoose": "^8.5.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "pnpm": {
+    "overrides": {
+      "body-parser@^1.0.0": "^1.20.6",
+      "cookie@^0.6.0": "^0.7.0",
+      "diff@^4.0.0": "^4.0.4",
+      "express@^4.0.0": "^4.20.0",
+      "mongoose@^8.0.0": "^8.24.1",
+      "path-to-regexp@^0.1.0": "^0.1.13",
+      "proxy-addr@^2.0.0": "^2.0.8",
+      "qs@^6.0.0": "^6.16.0",
+      "send@^0.18.0": "^0.19.0",
+      "serve-static@^1.0.0": "^1.16.0"
+    }
   }
 }
